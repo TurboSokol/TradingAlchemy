@@ -38,11 +38,14 @@ dependencyResolutionManagement {
             version("multiplatform-settings-version", "0.9")
             version("accompanist-coil", "0.15.0")
             version("accompanist-navigation-animation", "0.27.0")
+            version("stately-version", "1.2.2")
+            version("imageloader-version", "1.2.2.1")
 
             //CORE
             library("androidx-core","androidx.core", "core-ktx").versionRef("androix-version")
             library("multiplatformSettings-core","com.russhwolf", "multiplatform-settings").versionRef("multiplatform-settings-version")
             library("multiplatformSettings-test","com.russhwolf", "multiplatform-settings-test").versionRef("multiplatform-settings-version")
+            library("stately-common", "co.touchlab", "stately-common").versionRef("stately-version")
 
             //UI
             library("androidx-compose-ui-core","androidx.compose.ui", "ui").versionRef("compose-version")
@@ -53,6 +56,7 @@ dependencyResolutionManagement {
             library("androidx-compose-navigation","androidx.navigation", "navigation-compose").versionRef("compose-navigation")
             library("accompanist-coil","com.google.accompanist", "accompanist-coil").versionRef("accompanist-coil")
             library("accompanist-navigationAnimation","com.google.accompanist", "accompanist-navigation-animation").versionRef("accompanist-navigation-animation")
+            library("imageLoader","io.github.qdsfdhvh", "image-loader").versionRef("imageloader-version")
 
             //NETWORK
             library("ktor-client-core","io.ktor", "ktor-client-core").versionRef("ktor-version")
@@ -80,6 +84,20 @@ dependencyResolutionManagement {
             //VIEWMODEL MULTIPLATFORM
             library("hyperdrive-multiplatformx-api","org.brightify.hyperdrive", "multiplatformx-api").versionRef("hyperdrive-version")
             library("hyperdrive-multiplatformx-compose","org.brightify.hyperdrive", "multiplatformx-compose").versionRef("hyperdrive-version")
+
+            bundle("ktor-common",
+                listOf(
+                    "ktor-client-core",
+                    "ktor-client-json",
+                    "ktor-client-logging",
+                    "ktor-client-serialization",
+            ))
+
+            bundle("sqldelight-common",
+                listOf(
+                    "sqldelight-runtime",
+                    "sqldelight-coroutines"
+            ))
         }
     }
 }
